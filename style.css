@@ -1,0 +1,53 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.garland-container {
+	position: relative;
+    margin: 100px auto;
+}
+
+.bulb {
+	transition: .3s;
+}
+
+.control-panel {
+	position: relative;
+    margin: 0 auto;
+}
+
+.control-panel__managment-tools {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.control-panel__buttons {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.control-panel__power-button {}
+
+.control-panel__form {}
+
+.control-panel__direction {}
+
+.control-panel__frequency {}
+
+.control-panel__get-data {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.control-panel__get-data span {
+	display: block;
+	max-width: 80px;
+	margin-bottom: 10px;
+}
+
+.control-panel__get-size {}
