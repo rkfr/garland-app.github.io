@@ -1,7 +1,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pbLN6tB7WzrbOfw8PW7nAJZ5yjZcjMRt_FzI8n3-BLL2mXVr) center center no-repeat fixed;
+	background: url(img/background.jpg) center center no-repeat fixed;
 	background-size: cover;
 }
 
@@ -128,4 +128,46 @@ body {
 
 .display__frequency_show {
 	color: #FA5858;
+}
+
+@media screen and (max-width: 910px) {
+
+	.garland-container {
+		margin-bottom: 300px;
+	}
+
+	.control-panel__managment-tools {
+		justify-content: center;
+	}
+
+	.control-panel__buttons {}
+}
+
+@media screen and (max-width: 580px) {
+
+	.garland-container {
+		margin-bottom: 180px;
+	}
+	
+	.control-panel__managment-tools {
+		flex-direction: column;
+		padding: 25px;
+		align-items: center;
+	}
+	
+	.control-panel__buttons {
+		order: 2;
+	}
+
+	.control-panel__display {
+		padding: 50px 0;
+	}
+}
+
+
+@media screen and (max-width: 420px) {
+	
+	.garland-container {
+		margin-bottom: 110px;
+	}
 }
