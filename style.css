@@ -1,6 +1,8 @@
 body {
 	padding: 0;
 	margin: 0;
+	background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pbLN6tB7WzrbOfw8PW7nAJZ5yjZcjMRt_FzI8n3-BLL2mXVr) center center no-repeat fixed;
+	background-size: cover;
 }
 
 .garland-container {
@@ -10,6 +12,7 @@ body {
 
 .bulb {
 	transition: .3s;
+	box-shadow: -2px 1px 53px -9px rgba(0,0,0,0.75);
 }
 
 .control-panel {
@@ -29,25 +32,100 @@ body {
 	flex-direction: column;
 }
 
-.control-panel__power-button {}
+.control-panel__freq_dec,
+.control-panel__freq_add,
+.control-panel__direction,
+.control-panel__form,
+.control-panel__power-button {
+	font-family: 'Open Sans', sans-serif;
+	padding: 5px;
+	border-radius: 10px;
+	border: none;
+	margin: 7px 0;
+	cursor: pointer;
+	box-shadow: 30px 28px 33px -16px rgba(92,184,142,1);
+}
 
-.control-panel__form {}
+.control-panel__power-button {
+	color: #B40404;
+}
+
+/*.control-panel__form {}
 
 .control-panel__direction {}
 
-.control-panel__frequency {}
+.control-panel__frequency {}*/
+
+.control-panel__freq_dec {
+	margin-right: 3px;
+	padding: 7px;
+	border-radius: 30px 10px 10px 30px;
+}
+.control-panel__freq_add {
+	margin-left: 3px;
+	padding: 7px;
+	border-radius: 10px 30px 30px 10px;
+}
 
 .control-panel__get-data {
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	text-align: right;
 }
 
 .control-panel__get-data span {
 	display: block;
-	max-width: 80px;
+	max-width: 110px;
 	margin-bottom: 10px;
+	font-family: 'Open Sans', sans-serif;
+	color: #D8D8D8;
 }
 
-.control-panel__get-size {}
+.control-panel__color-scheme,
+.control-panel__get-number {
+	padding: 8px;
+	border-radius: 7px;
+	border: none;
+	text-align: center;
+}
+
+.control-panel__color-scheme {
+	margin-top: 10px;
+}
+
+/*display*/
+
+.control-panel__display {
+	position: absolute;
+	bottom: -90px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #D8D8D8;
+}
+
+.display__direction {
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Open Sans', sans-serif;
+}
+.display__frequency {
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.display__direction_show,
+.display__frequency_show {
+	display: block;
+	padding-left: 15px;
+}
+
+.display__direction_show {
+	color: #0174DF;
+}
+
+.display__frequency_show {
+	color: #FA5858;
+}
