@@ -4,12 +4,12 @@ class Garland {
 
 	constructor(parentEl) {
 		this.props = {
-			colors: [['pink', 'orange', 'lightgreen'], ['red', 'green', 'blue']],
+			colors: [['pink', 'orange', 'lightgreen'], ['#FE2E64', '#01DF74', '#5882FA']],
 			colorScheme: 0,
 			step: 20,
-			size: 500,
+			size: document.body.clientWidth * 0.6,
 			frequency: 1000,
-			form: 'rect',
+			form: 'circle',
 			reverseDir: true,
 			isOn: true
 		}	
@@ -18,6 +18,8 @@ class Garland {
 			this.createGarland(parentEl);
 			this.animate();
 			(this.props.form === 'rect') ? this.renderRect() : this.renderCircle();
+			this.showCurrentFrequency();
+			this.showCurrentDirection();
 		}
 	}
 	// greating garland
@@ -200,19 +202,19 @@ class Garland {
 		getDataForm.classList.add('control-panel__get-data');
 		getNum.classList.add('control-panel__get-number');
 
-		powerButton.innerText = 'Power';
+		powerButton.innerText = 'On/Off';
 		formButton.innerText = 'Change form';
 		directionButton.innerText = 'Change direction';
 		freqDec.innerText = 'Frequency -';
 		freqAdd.innerText = 'Frequency +';
 		schemeOne.innerText = 'pink - orange - lightgreen';
 		schemeTwo.innerText = 'red - green - blue';
-		numDescription.innerText = 'Number from 6 to 60 with step 2';
+		numDescription.innerText = 'Number from 18 to 60 with step 2';
 
 		colorScheme.setAttribute('name', 'color-scheme');
 		getNum.setAttribute('type', 'number');
 		getNum.setAttribute('value', '20');
-		getNum.setAttribute('min', '6');
+		getNum.setAttribute('min', '18');
 		getNum.setAttribute('max', '60');
 		getNum.setAttribute('step', '2');
 
@@ -224,12 +226,54 @@ class Garland {
 		tools.append(buttonsSection, getDataForm);
 		container.append(display, tools);
 
+		this.createDisplay(display);
+
 		powerButton.addEventListener('click', this.changePowerHandler.bind(this));
 		formButton.addEventListener('click', this.changeFormHandler.bind(this));
 		directionButton.addEventListener('click', this.changeDirectionHandler.bind(this));
 		frequency.addEventListener('click', this.changeFrequencyHandler());
 		colorScheme.addEventListener('change', this.changeColorSchemeHandler());
 		getNum.addEventListener('input', this.changeNumsHandler());
+	}
+
+	createDisplay(display) {
+		display.style.position = 'absolute';
+
+		const showDirection = document.createElement('div'),
+			directionAbout = document.createElement('span'),
+			currentDirection = document.createElement('span'),
+			showFrequency = document.createElement('frequency'),
+			frequencyAbout = document.createElement('span'),
+			currentFrequency = document.createElement('span');
+
+		showDirection.classList.add('display__direction');
+		showFrequency.classList.add('display__frequency');
+		currentDirection.classList.add('display__direction_show');
+		currentFrequency.classList.add('display__frequency_show');
+
+
+		directionAbout.innerText = 'Current light direction: ';
+		frequencyAbout.innerText = 'Frequency: ';
+
+		showDirection.append(directionAbout, currentDirection);
+		showFrequency.append(frequencyAbout, currentFrequency);
+		display.append(showDirection, showFrequency);
+	}
+
+	showCurrentFrequency() {
+		const currentFrequency = document.querySelector('.display__frequency_show');
+		currentFrequency.innerText = `   ${this.props.frequency} ms`;
+	}
+
+	showCurrentDirection() {
+		const currentDirection = document.querySelector('.display__direction_show');
+		let dir;
+
+		if (this.props.reverseDir)
+			dir = '   <<<';
+		else
+			dir = '   >>>';
+		currentDirection.innerText = dir;
 	}
 
 	changeFormHandler() {
@@ -275,6 +319,7 @@ class Garland {
 		this.createGarlandEl(garland);
 		this.animate();
 		(this.props.form === 'rect') ? this.renderRect() : this.renderCircle();
+		this.showCurrentDirection();
 	}
 
 	changeFrequencyHandler() {
@@ -296,6 +341,7 @@ class Garland {
 			this.createGarlandEl(garland);
 			this.animate();
 			(this.props.form === 'rect') ? this.renderRect() : this.renderCircle();
+			this.showCurrentFrequency();
 		}
 	}
 
@@ -318,7 +364,7 @@ class Garland {
 			const {value} = e.target,
 				garland = document.querySelector('.garland-container');
 
-			if (+value % 2 === 0) {
+			if (+value % 2 === 0 && (value >= 18 && value <= 60)) {
 				this.props.step = +value;
 				this.createGarlandEl(garland);
 				this.animate();
