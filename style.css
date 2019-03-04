@@ -50,6 +50,10 @@ body {
 	color: #B40404;
 }
 
+button:hover {
+	background: #FFFFFF;
+}
+
 /*.control-panel__form {}
 
 .control-panel__direction {}
@@ -89,6 +93,7 @@ body {
 	border-radius: 7px;
 	border: none;
 	text-align: center;
+	background: #E6E6E6;
 }
 
 .control-panel__color-scheme {
@@ -100,8 +105,7 @@ body {
 .control-panel__display {
 	position: absolute;
 	bottom: -90px;
-	left: 50%;
-	transform: translateX(-50%);
+	right: 15px;
 	color: #D8D8D8;
 }
 
@@ -140,7 +144,11 @@ body {
 		justify-content: center;
 	}
 
-	.control-panel__buttons {}
+	.control-panel__display {
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 30px 0;
+	}
 }
 
 @media screen and (max-width: 580px) {
@@ -164,12 +172,14 @@ body {
 		position: static;
 		margin-bottom: 50px;
 	}
-
+	
 	.control-panel__display {
 		padding: 50px 0;
 		display: block;
 		margin-bottom: 50px;
-		/*bottom: 20px;*/
+		position: relative !important;
+		padding: 40px;
+		max-width: 60%;
 	}
 }
 

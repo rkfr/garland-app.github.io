@@ -5,7 +5,7 @@ class Garland {
 	constructor(parentEl) {
 		this.props = {
 			colors: [['pink', 'orange', 'lightgreen'], ['#FE2E64', '#01DF74', '#5882FA']],
-			colorScheme: 0,
+			colorScheme: 1,
 			step: 20,
 			size: document.body.clientWidth * 0.6,
 			frequency: 1000,
@@ -217,6 +217,7 @@ class Garland {
 		getNum.setAttribute('min', '18');
 		getNum.setAttribute('max', '60');
 		getNum.setAttribute('step', '2');
+		schemeTwo.setAttribute('selected', true);
 
 		buttonsSection.append(powerButton, formButton, directionButton, frequency);
 		colorScheme.append(schemeOne, schemeTwo);
