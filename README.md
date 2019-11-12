@@ -1,3 +1,3 @@
-Garland app using pure JS.
+Garland app vanilla JS
 
-[Demo](https://rkfr.github.io/garland-test-task.github.io/)
+[Demo](https://rkfr.github.io/garland-app.github.io/)
